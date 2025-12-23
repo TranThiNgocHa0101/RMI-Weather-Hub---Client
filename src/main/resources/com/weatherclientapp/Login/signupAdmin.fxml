@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="signupAdmin" prefHeight="560" prefWidth="330" style="-fx-background-color: linear-gradient(to bottom right, #05b9a3, #089aaf);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.weatherclientapp.Home1.LoginAdmin">
+
+   <AnchorPane prefHeight="560" prefWidth="330">
+
+      <!-- LOGIN FORM CONTAINER -->
+      <AnchorPane fx:id="loginFormA" layoutX="15" layoutY="20" prefHeight="520" prefWidth="300" style="-fx-background-color: rgba(255,255,255,0.98);                            -fx-background-radius: 28;                            -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.22), 20, 0.45, 0, 6);">
+
+         <children>
+
+            <!-- Icon -->
+            <ImageView fitHeight="78" fitWidth="78" layoutX="113" layoutY="25">
+               <image><Image url="@image/img.png" /></image>
+            </ImageView>
+
+            <!-- Title -->
+            <Label alignment="CENTER" layoutX="40" layoutY="112" prefWidth="220" style="-fx-text-fill: #05b9a3;" text="Welcome Admin">
+               <font><Font name="Arial Bold" size="25" /></font>
+            </Label>
+
+            <!-- Subtitle -->
+            <Label alignment="CENTER" layoutX="40" layoutY="145" prefWidth="220" style="-fx-text-fill: #666; -fx-font-size: 13px;" text="Login in to continue" />
+
+            <ComboBox fx:id="roleBox" layoutX="31" layoutY="171" prefWidth="240"
+                      onAction="#selectUser"
+                      promptText="Select Role"
+                      style="-fx-background-radius: 12;
+                 -fx-border-radius: 12;
+                 -fx-font-size: 14px;
+                 -fx-font-weight: bold;
+                 -fx-background-color: linear-gradient(to bottom, #ffffff, #e6e6e6);
+                 -fx-border-color: #cccccc;
+                 -fx-border-width: 1.5;
+                 -fx-padding: 6 12 6 12;
+                 -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Client" />
+                     <String fx:value="Admin" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+
+
+            <!-- ID Field -->
+            <TextField fx:id="ID_signin" layoutX="38.0" layoutY="232.0" prefHeight="34" prefWidth="225" promptText="Admin ID" style="-fx-background-color: transparent;                                   -fx-border-width: 0 0 2 0;                                   -fx-border-color: #05b9a3;                                   -fx-font-size: 14px;" />
+
+            <!-- Username Field -->
+            <TextField fx:id="Username_signinA" layoutX="39.0" layoutY="282.0" prefHeight="34" prefWidth="225" promptText="Admin Name" style="-fx-background-color: transparent;                                   -fx-border-width: 0 0 2 0;                                   -fx-border-color: #05b9a3;                                   -fx-font-size: 14px;" />
+
+            <!-- Password Field -->
+            <PasswordField fx:id="pass_signinA" layoutX="39.0" layoutY="328.0" prefHeight="34" prefWidth="225" promptText="Password" style="-fx-background-color: transparent;                                       -fx-border-width: 0 0 2 0;                                       -fx-border-color: #05b9a3;                                       -fx-font-size: 14px;" />
+
+            <TextField fx:id="showPass_signinA" layoutX="38" layoutY="336" prefHeight="34" prefWidth="225" visible="false" />
+
+            <!-- Show Password -->
+            <CheckBox fx:id="showPassA" layoutX="40.0" layoutY="370.0" onAction="#ShowPass" style="-fx-font-size: 12.5px; -fx-text-fill: #444;" text="Show Password" />
+
+            <!-- Face ID Icon -->
+            <ImageView fx:id="faceidbtn" fitHeight="32" fitWidth="32" layoutX="136.0" layoutY="402.0" style="-fx-cursor: hand; -fx-opacity: 0.92;">
+               <image><Image url="@image/face-id.png" /></image>
+            </ImageView>
+
+            <!-- Login Button -->
+            <Button fx:id="loginbtnA" layoutX="71.0" layoutY="455.0" onAction="#LoginBtn" prefHeight="43" prefWidth="160" style="-fx-background-color: linear-gradient(to right, #05b9a3, #089aaf);                                -fx-text-fill: white;                                -fx-font-size: 16.5px;                                -fx-background-radius: 25;                                -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 7, 0.45, 0, 3);                                -fx-cursor: hand;" text="Log In" />
+
+         </children>
+      </AnchorPane>
+   </AnchorPane>
+</StackPane>

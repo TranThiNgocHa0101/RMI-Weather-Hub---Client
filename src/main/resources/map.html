@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Map</title>
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        html, body, #map {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            background-color: #ffffff;
+        }
+        .weather-tooltip {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #3498db;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            padding: 0;
+            text-align: center;
+            min-width: 140px;
+        }
+        .leaflet-tooltip-top:before { border: none !important; }
+        .tip-header { background-color: #3498db; color: white; padding: 5px; border-radius: 8px 8px 0 0; font-weight: bold; font-size: 14px; }
+        .tip-content { padding: 10px; }
+        .tip-temp { color: #e74c3c; font-weight: bold; font-size: 22px; margin: 5px 0; }
+        .tip-hum { color: #555; font-size: 13px; }
+        .tip-icon { width: 40px; height: 40px; vertical-align: middle; }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+
+<script>
+    // --- Map setup ---
+    var map = L.map('map', { zoomControl: false }).setView([16.5, 106.0], 5);
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+    // Tile server ổn định
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19
+    }).addTo(map);
+
+    // --- Cities ---
+    var cities = [
+        { name: "Hanoi", lat: 21.0285, lng: 105.8542, title: "Hà Nội" },
+        { name: "HoChiMinh", lat: 10.8231, lng: 106.6297, title: "TP. Hồ Chí Minh" },
+        { name: "DaNang", lat: 16.0544, lng: 108.2022, title: "Đà Nẵng" },
+        { name: "HaiPhong", lat: 20.8449, lng: 106.6881, title: "Hải Phòng" },
+        { name: "CanTho", lat: 10.0452, lng: 105.7469, title: "Cần Thơ" },
+        { name: "Hue", lat: 16.4637, lng: 107.5909, title: "Huế" }
+    ];
+
+    var markers = {};
+    var weatherCache = {}; // ⚡ Lưu dữ liệu thời tiết client-side
+
+    cities.forEach(function(c) {
+        var marker = L.marker([c.lat, c.lng]).addTo(map);
+        markers[c.name] = marker;
+
+        marker.bindTooltip(c.title, { direction: "top", className: "weather-tooltip", offset: [0, -10] });
+
+        marker.on('click', function() {
+            if (window.javaApp) window.javaApp.updateFromMap(c.name);
+        });
+
+        marker.on('mouseover', function() {
+            // Nếu đã có cache thì hiển thị ngay
+            if (weatherCache[c.name]) {
+                updateMarkerTooltip(c.name,
+                    weatherCache[c.name].temperature,
+                    weatherCache[c.name].humidity,
+                    weatherCache[c.name].icon);
+            } else {
+                marker.setTooltipContent(`<div style="padding:10px;color:gray;font-style:italic">⏳ Đang tải...</div>`);
+                marker.openTooltip();
+                if (window.javaApp) window.javaApp.onMarkerHover(c.name);
+            }
+        });
+    });
+
+    // --- Java sẽ gọi ---
+    function updateMarkerTooltip(cityName, temp, humidity, iconCode) {
+        weatherCache[cityName] = { temperature: temp, humidity: humidity, icon: iconCode };
+
+        var marker = markers[cityName];
+        if (!marker) return;
+
+        var iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+        var displayCity = cities.find(c => c.name === cityName)?.title || cityName;
+
+        var content = `
+            <div class="tip-header">${displayCity}</div>
+            <div class="tip-content">
+                <div style="display:flex; align-items:center; justify-content:center;">
+                    <img src="${iconUrl}" class="tip-icon" onerror="this.style.display='none'"/>
+                    <span class="tip-temp">${temp}°C</span>
+                </div>
+                <span class="tip-hum">💧 Độ ẩm: ${humidity}%</span>
+            </div>
+        `;
+        marker.setTooltipContent(content);
+        if (marker.isTooltipOpen()) marker.openTooltip();
+    }
+</script>
+</body>
+</html>

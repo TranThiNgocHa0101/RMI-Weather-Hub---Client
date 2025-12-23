@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.weatherclientapp.client.Profile"
+            prefWidth="500" prefHeight="700"
+            style="-fx-background-color: linear-gradient(to bottom, #e0f7fa, #ffffff);"  fx:id="profile">
+
+    <StackPane layoutX="190" layoutY="20" prefWidth="120" prefHeight="120">
+        <ImageView fx:id="avatarImage"
+                   fitWidth="120"
+                   fitHeight="120"
+                   preserveRatio="false"
+                   smooth="true"/>
+    </StackPane>
+
+
+
+    <!-- Upload Button -->
+    <Button fx:id="btnUpload" text="Upload Image" layoutX="190" layoutY="160" onAction="#uploadImage"
+            style="-fx-background-color: #00bcd4; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;"/>
+
+    <!-- ID -->
+    <Label text="ID:" layoutX="50" layoutY="210"/>
+    <TextField fx:id="txtId" layoutX="150" layoutY="205" prefWidth="250" editable="false"/>
+
+    <!-- Username -->
+    <Label text="Username:" layoutX="50" layoutY="250"/>
+    <TextField fx:id="txtUsername" layoutX="150" layoutY="245" prefWidth="250"/>
+
+    <!-- Email -->
+    <Label text="Email:" layoutX="50" layoutY="290"/>
+    <TextField fx:id="txtEmail" layoutX="150" layoutY="285" prefWidth="250"/>
+
+    <!-- Password Row -->
+    <Label text="Password:" layoutX="50" layoutY="330"/>
+    <PasswordField fx:id="txtPassword" layoutX="150" layoutY="325" prefWidth="200"/>
+    <TextField fx:id="txtPasswordVisible" layoutX="150" layoutY="325" prefWidth="200" visible="false" managed="false"/>
+    <Button fx:id="btnTogglePassword" text="👁️" layoutX="360" layoutY="325" prefWidth="40" prefHeight="25" style="-fx-font-size: 14px;"/>
+
+    <!-- Date Created -->
+    <Label text="Date Created:" layoutX="50" layoutY="370"/>
+    <DatePicker fx:id="dpDate" layoutX="150" layoutY="365" prefWidth="250" editable="false"/>
+
+    <!-- Update Date -->
+    <Label text="Update Date:" layoutX="50" layoutY="410"/>
+    <DatePicker fx:id="dpUpdateDate" layoutX="150" layoutY="405" prefWidth="250"/>
+
+    <!-- Save / Update Button -->
+    <Button fx:id="btnSave" text="Save / Update"   onAction="#saveProfile" layoutX="150" layoutY="460" prefWidth="250" prefHeight="35"
+            style="-fx-background-color: #4caf50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15; -fx-cursor: hand;"/>
+
+</AnchorPane>

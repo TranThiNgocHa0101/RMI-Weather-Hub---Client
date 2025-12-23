@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane prefHeight="560" prefWidth="330" style="-fx-background-color: linear-gradient(to bottom, #06b4a0, #08a4a4);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.weatherclientapp.Home1.LoginClient">
+
+    <AnchorPane prefHeight="560" prefWidth="330">
+
+        <!-- Login Form -->
+        <AnchorPane fx:id="loginForm" layoutX="20" layoutY="50" prefHeight="520" prefWidth="300" style="-fx-background-color: rgba(255,255,255,0.95); -fx-background-radius: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0.5, 0, 5);">
+            <children>
+
+                <ImageView fitHeight="90" fitWidth="90" layoutX="115.0" layoutY="14.0">
+                    <image><Image url="@image/img.png" /></image>
+                </ImageView>
+
+                <Label layoutX="117.0" layoutY="111.0" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #06b4a0;" text="Sign In" />
+
+                <TextField fx:id="username_signin" layoutX="40.0" layoutY="196.0" prefWidth="240" promptText="Username" style="-fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #06b4a0; -fx-font-size: 14px;" />
+
+                <PasswordField fx:id="pass_signin" layoutX="40.0" layoutY="235.0" prefWidth="240" promptText="Password" style="-fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #06b4a0; -fx-font-size: 14px;" />
+
+                <TextField fx:id="showPass_signin" layoutX="40" layoutY="220" prefWidth="240" style="-fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #06b4a0; -fx-font-size: 14px;" visible="false" />
+
+                <!-- ROLE COMBOBOX - Hiện đại -->
+                <ComboBox fx:id="roleBox" layoutX="40" layoutY="150" onAction="#switchFormSelect" prefWidth="240" promptText="Client" style="-fx-background-radius: 12;                  -fx-border-radius: 12;                  -fx-font-size: 14px;                  -fx-font-weight: bold;                  -fx-background-color: linear-gradient(to bottom, #ffffff, #e6e6e6);                  -fx-border-color: #cccccc;                  -fx-border-width: 1.5;                  -fx-padding: 6 12 6 12;                  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Client" />
+                            <String fx:value="Admin" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+
+                <CheckBox fx:id="showPass" layoutX="40" layoutY="300" onAction="#ShowPass" style="-fx-font-size: 12px; -fx-text-fill: #333;" text="Show Password" />
+
+                <Button fx:id="loginbtn" layoutX="40.0" layoutY="350.0" onAction="#LoginBtn" prefHeight="37.0" prefWidth="178.0" style="-fx-background-color: linear-gradient(to right, #06b4a0, #08a4a4); -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 25;" text="Login" />
+
+                <Hyperlink fx:id="Forgot_signin" layoutX="186.0" layoutY="305.0" onAction="#switchFormLogin" style="-fx-text-fill: #06b4a0; -fx-font-size: 13px;" text="Forgot Password?" />
+
+                <Label layoutX="50" layoutY="420" style="-fx-font-size: 12px; -fx-text-fill: #555;" text="Don't have an account?" />
+
+                <Button fx:id="createbtn" layoutX="40.0" layoutY="450" onAction="#switchFormLogin" prefHeight="38.0" prefWidth="240.0" style="-fx-background-color: linear-gradient(to right, #06b4a0, #08a4a4); -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 25;" text="Sign Up" />
+
+                <ImageView fx:id="faceidbtn" fitHeight="31.0" fitWidth="31.0" layoutX="249.0" layoutY="352.0" style="-fx-cursor: hand;">
+                    <image><Image url="@image/face-id.png" /></image>
+                </ImageView>
+
+
+            </children>
+        </AnchorPane>
+
+        <!-- SignUp Form -->
+        <AnchorPane fx:id="SignUpForm" layoutX="20" layoutY="50" prefHeight="500" prefWidth="320" style="-fx-background-color: rgba(255,255,255,0.95); -fx-background-radius: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0.5, 0, 5);" visible="false">
+            <children>
+                <Label layoutX="120" layoutY="20" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #06b4a0;" text="Sign Up" />
+
+                <TextField fx:id="Username_SignUp" layoutX="40" layoutY="70" prefWidth="240" promptText="Username" style="-fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #06b4a0; -fx-font-size: 14px;" />
+                <TextField fx:id="Email_SignUp" layoutX="40" layoutY="110" prefWidth="240" promptText="Email" style="-fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #06b4a0; -fx-font-size: 14px;" />
+                <PasswordField fx:id="Pass_SignUp" layoutX="40" layoutY="150" prefWidth="240" promptText="Password" style="-fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #06b4a0; -fx-font-size: 14px;" />
+                <PasswordField fx:id="Confirm_SignUp" layoutX="40" layoutY="190" prefWidth="240" promptText="Confirm Password" style="-fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #06b4a0; -fx-font-size: 14px;" />
+
+                <!-- FaceID icon -->
+                <ImageView fx:id="faceid_Signbtn" fitHeight="40.0" fitWidth="40.0" layoutX="140" layoutY="230" style="-fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 5, 0.5, 0, 2);">
+                    <image><Image url="@image/face-id.png" /></image>
+                </ImageView>
+
+                <!-- Buttons horizontal -->
+                <HBox alignment="CENTER" layoutX="40" layoutY="290" spacing="20">
+                    <children>
+                        <Button fx:id="Signupbtn" onAction="#register" prefWidth="120" style="-fx-background-color: linear-gradient(to right, #06b4a0, #08a4a4); -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 25;" text="Sign Up" />
+                        <Button fx:id="Signinbtn" onAction="#switchFormLogin" prefWidth="120" style="-fx-background-color: linear-gradient(to right, #06b4a0, #08a4a4); -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 25;" text="Login" />
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+
+        <!-- Forgot Password Form -->
+        <AnchorPane fx:id="ForgotForm" layoutX="20" layoutY="50" prefHeight="500" prefWidth="320" style="-fx-background-color: rgba(255,255,255,0.95); -fx-background-radius: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0.5, 0, 5);" visible="false">
+            <children>
+                <Label layoutX="80" layoutY="20" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #06b4a0;" text="Forgot Password" />
+
+                <TextField fx:id="username_Forgot" layoutX="40" layoutY="80" prefWidth="240" promptText="Username" style="-fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #06b4a0; -fx-font-size: 14px;" />
+
+                <!-- FaceID icon -->
+                <ImageView fx:id="faceid_Forgetbtn" fitHeight="40.0" fitWidth="40.0" layoutX="140" layoutY="140" style="-fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 5, 0.5, 0, 2);">
+                    <image><Image url="@image/face-id.png" /></image>
+                </ImageView>
+
+                <!-- Buttons horizontal -->
+                <HBox alignment="CENTER" layoutX="40" layoutY="200" spacing="20">
+                    <children>
+                        <Button fx:id="Proceedbtn" onAction="#forgotPassword" prefWidth="120" style="-fx-background-color: linear-gradient(to right, #06b4a0, #08a4a4); -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 25;" text="Proceed" />
+                        <Button fx:id="Backbtn1" onAction="#switchFormLogin" prefWidth="120" style="-fx-background-color: linear-gradient(to right, #06b4a0, #08a4a4); -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 25;" text="Back" />
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+
+
+        <!-- Change Password Form -->
+        <AnchorPane fx:id="PassForm" layoutX="20" layoutY="50" prefHeight="500" prefWidth="320" style="-fx-background-color: rgba(255,255,255,0.95); -fx-background-radius: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0.5, 0, 5);" visible="false">
+            <children>
+                <Label layoutX="70" layoutY="20" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #06b4a0;" text="Change Password" />
+
+                <VBox layoutX="40" layoutY="70" spacing="30">
+                    <children>
+                        <PasswordField fx:id="pass_Pass" prefWidth="240" promptText="New Password" style="-fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #06b4a0; -fx-font-size: 14px;" />
+                        <PasswordField fx:id="confirm_Pass" prefWidth="240" promptText="Confirm Password" style="-fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #06b4a0; -fx-font-size: 14px;" />
+                    </children>
+                </VBox>
+
+                <Button fx:id="Proceedbtn2" layoutX="60" layoutY="200" onAction="#changePassword" prefWidth="200" style="-fx-background-color: linear-gradient(to right, #06b4a0, #08a4a4); -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 25;" text="Change Password" />
+            </children>
+        </AnchorPane>
+
+
+    </AnchorPane>
+</StackPane>

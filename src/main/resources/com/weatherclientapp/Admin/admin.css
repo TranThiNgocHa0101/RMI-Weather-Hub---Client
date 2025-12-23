@@ -1,0 +1,105 @@
+.rounded-bottom-border{
+   -fx-background-radius: 0 0 5 5;
+   -fx-border-color: black;
+   -fx-border-radius: 0 0 5 5;
+   -fx-border-width: 1px;
+}
+.rounded-top-border{
+    -fx-background-radius: 5 5 0 0;
+    -fx-border-color: black;
+    -fx-border-radius: 5 5 0 0;
+    -fx-border-width: 1px;
+}
+.button {
+    -fx-background-color: cyan;
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+}
+.button:hover{
+    -fx-background-color: #e8ffff;
+    -fx-border-color: #32ebff;
+    -fx-border-width: 2px;
+}
+.border1{
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-color: black;
+    -fx-border-radius: 10 10 10 10;
+    -fx-border-width: 1px;
+}
+.rounded-top-border2{
+    -fx-background-radius: 5 5 0 0;
+    -fx-border-color: black;
+    -fx-border-radius: 5 5 0 0;
+    -fx-border-width: 1px;
+}
+.search-bt{
+    -fx-background-radius: 25 25 25 25;
+    -fx-border-color: black;
+    -fx-border-radius: 25 25 25 25;
+    -fx-border-width: 1px;
+    -fx-padding: 0px 0px 0px 50px;
+}
+.search-lb{
+    -fx-background-radius: 5 5 0 0;
+    -fx-border-color: #555555;
+    -fx-border-radius: 5 5 0 0;
+    -fx-border-width: 1px;
+    -fx-text-fill: #F5F5F5;
+}
+.dashboard1 {
+    -fx-background-radius: 5 5 5 5;
+    -fx-background-color: white;
+}
+.dashboard2 {
+    -fx-background-radius: 10 10 10 10;
+    -fx-background-color: white;
+}
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5,0,0,0);
+}
+.table-view{
+    -fx-padding: 0;
+    -fx-border-color: cyan;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1.5px;
+}
+.table-view .column-header-background{
+    -fx-background-color: cyan;
+    -fx-background-radius: 5px 5px 0 0;
+    -fx-background-insets: 0 0 0 0;
+}
+.table-view .column-header, .filter{
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+}
+.table-view .column-header .label{
+    -fx-text-fill: #000000;
+}
+.button1 {
+    -fx-background-color: cyan;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+    -fx-border-color: white;
+    -fx-border-width: 1px;
+}
+.button1:hover{
+    -fx-background-color: cyan;
+    -fx-border-color: black;
+    -fx-border-radius: 10 10 10 10;
+    -fx-border-width: 1px;
+}
+
+.button3 {
+    -fx-background-color: cyan;
+    -fx-border-radius: 25 25 25 25;
+    -fx-background-radius: 25 25 25 25;
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+}
+.button3:hover{
+    -fx-background-color: white;
+    -fx-border-color: #79d5ea;
+    -fx-border-width: 2px;
+}
